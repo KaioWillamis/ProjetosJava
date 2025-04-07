@@ -14,7 +14,12 @@ public abstract class Conta implements IConta{
 
     @Override
     public void sacar(double valor){
-        this.saldo -= valor;
+        if(valor > this.saldo){
+            System.out.println("Você não pode sacar esse valor");
+        }
+        else{
+            this.saldo -= valor;
+        }
     }
 
     @Override
