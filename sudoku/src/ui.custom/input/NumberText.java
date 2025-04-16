@@ -7,7 +7,7 @@ import javax.swing.event.DocumentListener;
 import java.awt.Dimension;
 import javax.awt.Font;
 
-public class NumberText {
+public class NumberText extends JtextField implements EventListener{
     private final Space space;
 
     public NumberText(final Space space){
@@ -49,4 +49,13 @@ public class NumberText {
             }
         });
     }
+
+    @Override
+    public void update(final EventEnum eventType){
+        if(eventType.equals(CLEAR_SPACE) && (this.isEnabled())){
+            this.setText("");
+        }
+    }
 }
+
+
